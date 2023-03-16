@@ -36,8 +36,8 @@ public final class TMDbAPI {
     /// Watch Providers.
     public let watchProviders: WatchProviderService
 
-    public convenience init(apiKey: String) {
-        self.init(apiKey: apiKey, urlSessionConfiguration: .default)
+    public convenience init(apiKey: String, configuration: URLSessionConfiguration) {
+        self.init(apiKey: apiKey, urlSessionConfiguration: configuration)
     }
 
     convenience init(apiKey: String, baseURL: URL = .tmdbAPIBaseURL, urlSessionConfiguration: URLSessionConfiguration) {
