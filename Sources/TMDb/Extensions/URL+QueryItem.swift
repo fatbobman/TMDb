@@ -27,6 +27,7 @@ extension URL {
         static let year = "year"
         static let firstAirDateYear = "first_air_date_year"
         static let withPeople = "with_people"
+        static let withGenre = "with_genres"
     }
 
     func appendingAPIKey(_ apiKey: String) -> Self {
@@ -102,6 +103,18 @@ extension URL {
             .joined(separator: ",")
 
         return appendingQueryItem(name: QueryItemName.withPeople, value: value)
+    }
+    
+    func appendingWithGenre(_ genreIDs: [Genre.ID]?) -> Self {
+        guard let genreIDs = genreIDs else {
+            return self
+        }
+        
+        let value = genreIDs
+            .map(\.description)
+            .joined(separator: ",")
+        
+        return appendingQueryItem(name: QueryItemName.withGenre, value: value)
     }
 
 }

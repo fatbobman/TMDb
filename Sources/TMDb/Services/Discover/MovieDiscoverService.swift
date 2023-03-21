@@ -16,7 +16,7 @@ public protocol MovieDiscoverService {
     ///     - page: The page of results to return.
     ///
     /// - Returns: Matching movies as a pageable list.
-    func movies(sortedBy: MovieSort?, withPeople people: [Person.ID]?, page: Int?) async throws -> MoviePageableList
+    func movies(sortedBy: MovieSort?, withPeople people: [Person.ID]?, withGenres genre: [Genre.ID]?, page: Int?) async throws -> MoviePageableList
 
 }
 
