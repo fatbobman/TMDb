@@ -14,12 +14,14 @@ extension DiscoverEndpoint: Endpoint {
     var path: URL {
         switch self {
         case .movies(let sortedBy, let people,let genre, let page):
-            return Self.basePath
+            let t = Self.basePath
                 .appendingPathComponent("movie")
                 .appendingSortBy(sortedBy)
                 .appendingWithPeople(people)
                 .appendingWithGenre(genre)
                 .appendingPage(page)
+            print(t)
+            return t
 
         case .tvShows(let sortedBy, let page):
             return Self.basePath
