@@ -22,9 +22,10 @@ public protocol MovieDiscoverService {
 
 public extension MovieDiscoverService {
 
-    func movies(sortedBy: MovieSort? = nil, withPeople people: [Person.ID]? = nil,
-                page: Int? = nil) async throws -> MoviePageableList {
-        try await movies(sortedBy: sortedBy, withPeople: people, page: page)
+    func movies(sortedBy: MovieSort? = nil, withPeople people: [Person.ID]? = nil, withGenres genre: [Genre.ID]?,
+                page: Int? = nil) async throws -> MoviePageableList
+    {
+        try await movies(sortedBy: sortedBy, withPeople: people, withGenres: genre, page: page)
     }
 
 }
